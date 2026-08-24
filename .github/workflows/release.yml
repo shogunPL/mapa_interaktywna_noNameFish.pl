@@ -1,0 +1,58 @@
+name: NNF MAP - build release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-release:
+    runs-on: windows-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Verify tag matches project version
+        shell: pwsh
+        run: |
+          [xml]$project = Get-Content -LiteralPath 'RF4MapOverlay.WinUI3.csproj' -Raw
+          $version = @($project.Project.PropertyGroup.Version | Where-Object { $_ })[0].ToString().Trim()
+          if ('v' + $version -ne '${{ github.ref_name }}') {
+            throw "Tag ${{ github.ref_name }} nie pasuje do wersji projektu v$version."
+          }
+          "APP_VERSION=$version" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+      - name: Install Inno Setup
+        shell: pwsh
+        run: choco install innosetup --yes --no-progress
+
+      - name: Build installer and SHA-256
+        shell: cmd
+        env:
+          CI: 'true'
+        run: Installer\BUILD_INSTALLER.cmd
+
+      - name: Verify update assets
+        shell: pwsh
+        run: |
+          $setup = "dist\NNF_MAP_Setup_v$env:APP_VERSION`_x64.exe"
+          if (-not (Test-Path -LiteralPath $setup)) { throw "Brak $setup" }
+          if (-not (Test-Path -LiteralPath ($setup + '.sha256'))) { throw "Brak $setup.sha256" }
+
+      - name: Create GitHub Release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $setup = "dist\NNF_MAP_Setup_v$env:APP_VERSION`_x64.exe"
+          gh release create "v$env:APP_VERSION" $setup ($setup + '.sha256') --title "NNF MAP v$env:APP_VERSION" --generate-notes
