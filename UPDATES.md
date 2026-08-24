@@ -8,16 +8,13 @@ Program sprawdza najnowszy **GitHub Release** przy uruchomieniu, co 30 minut pod
 
 Dla wersji `X.Y.Z` release powinien mieć tag `vX.Y.Z`.
 
-Preferowane pliki aktualizacji:
-
-- `NNF_MAP_Patch_vX.Y.Z_x64.exe`
-- `NNF_MAP_Patch_vX.Y.Z_x64.exe.sha256`
-
-Updater obsługuje również zgodny fallback:
+Build tworzy tylko jeden pakiet EXE. Ten sam instalator służy do czystej instalacji i do aktualizacji istniejącej wersji:
 
 - `NNF_MAP_Setup_vX.Y.Z_x64.exe`
 - `NNF_MAP_Setup_vX.Y.Z_x64.exe.sha256`
 
-Program porównuje wersję z najnowszym GitHub Release, pobiera patch z publicznego assetu, weryfikuje SHA-256 i uruchamia Inno Setup w trybie aktualizacji. Dane użytkownika z `Dokumenty\NNF MAP` pozostają bez zmian.
+Nie jest tworzona druga kopia `NNF_MAP_Patch_...`, ponieważ byłaby binarnie tym samym instalatorem. Inno Setup rozpoznaje istniejącą instalację po stałym `AppId` i wykonuje aktualizację na miejscu.
 
-Workflow `.github/workflows/release.yml` po tagu `vX.Y.Z` może automatycznie zbudować i opublikować patch.
+Program porównuje wersję z najnowszym GitHub Release, pobiera instalator z publicznego assetu, weryfikuje SHA-256 i uruchamia Inno Setup w trybie aktualizacji. Dane użytkownika z `Dokumenty\NNF MAP` pozostają bez zmian.
+
+Workflow `.github/workflows/release.yml` po tagu `vX.Y.Z` automatycznie buduje i publikuje ten jeden instalator oraz jego plik SHA-256.
