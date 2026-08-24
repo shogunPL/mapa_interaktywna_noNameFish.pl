@@ -36,7 +36,7 @@ jobs:
         shell: pwsh
         run: choco install innosetup --yes --no-progress
 
-      - name: Build installer and SHA-256
+      - name: Build installer, patch and SHA-256
         shell: cmd
         env:
           CI: 'true'
@@ -45,14 +45,14 @@ jobs:
       - name: Verify update assets
         shell: pwsh
         run: |
-          $setup = "dist\NNF_MAP_Setup_v$env:APP_VERSION`_x64.exe"
-          if (-not (Test-Path -LiteralPath $setup)) { throw "Brak $setup" }
-          if (-not (Test-Path -LiteralPath ($setup + '.sha256'))) { throw "Brak $setup.sha256" }
+          $patch = "dist\NNF_MAP_Patch_v$env:APP_VERSION`_x64.exe"
+          if (-not (Test-Path -LiteralPath $patch)) { throw "Brak $patch" }
+          if (-not (Test-Path -LiteralPath ($patch + '.sha256'))) { throw "Brak $patch.sha256" }
 
       - name: Create GitHub Release
         shell: pwsh
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          $setup = "dist\NNF_MAP_Setup_v$env:APP_VERSION`_x64.exe"
-          gh release create "v$env:APP_VERSION" $setup ($setup + '.sha256') --title "NNF MAP v$env:APP_VERSION" --generate-notes
+          $patch = "dist\NNF_MAP_Patch_v$env:APP_VERSION`_x64.exe"
+          gh release create "v$env:APP_VERSION" $patch ($patch + '.sha256') --title "NNF MAP v$env:APP_VERSION" --generate-notes
