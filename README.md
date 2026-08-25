@@ -6,10 +6,12 @@
 
 Mapy lokalne • Spoty społeczności NNF • Notatki • Miarka • Rysowanie • Automatyczne aktualizacje
 
-[![Windows](https://img.shields.io/badge/Windows-10%20%2F%2011-0078D6?logo=windows)](https://github.com/shogunPL/mapa_interaktywna_noNameFish.pl)
-[![Latest Release](https://img.shields.io/github/v/release/shogunPL/mapa_interaktywna_noNameFish.pl?label=wersja)](https://github.com/shogunPL/mapa_interaktywna_noNameFish.pl/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/shogunPL/mapa_interaktywna_noNameFish.pl/total?label=pobrania)](https://github.com/shogunPL/mapa_interaktywna_noNameFish.pl/releases)
-![Odwiedziny](https://api.visitorbadge.io/api/VisitorHit?user=shogunPL&repo=mapa_interaktywna_noNameFish.pl&label=ODWIEDZINY&countColor=%2328a745)
+<p align="left">
+  <img height="18" src="https://img.shields.io/badge/Windows-10%20%2F%2011-0078D6?style=flat-square&logo=windows" />
+  <img height="18" src="https://img.shields.io/badge/wersja-v1.0.6-0A84FF?style=flat-square" />
+  <img height="18" src="https://img.shields.io/github/downloads/shogunPL/mapa_interaktywna_noNameFish.pl/total?style=flat-square&label=pobrania" />
+  <img height="18" src="https://api.visitorbadge.io/api/VisitorHit?user=shogunPL&repo=mapa_interaktywna_noNameFish.pl&label=ODWIEDZINY&countColor=%2328a745" />
+</p>
 
 ### ⬇️ [POBIERZ NAJNOWSZĄ WERSJĘ](https://github.com/shogunPL/mapa_interaktywna_noNameFish.pl/releases/latest)
 
