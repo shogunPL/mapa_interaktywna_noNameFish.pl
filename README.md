@@ -9,6 +9,7 @@ Mapy lokalne • Spoty społeczności NNF • Notatki • Miarka • Rysowanie �
 [![Windows](https://img.shields.io/badge/Windows-10%20%2F%2011-0078D6?logo=windows)](https://github.com/shogunPL/mapa_interaktywna_noNameFish.pl)
 [![Latest Release](https://img.shields.io/github/v/release/shogunPL/mapa_interaktywna_noNameFish.pl?label=wersja)](https://github.com/shogunPL/mapa_interaktywna_noNameFish.pl/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/shogunPL/mapa_interaktywna_noNameFish.pl/total?label=pobrania)](https://github.com/shogunPL/mapa_interaktywna_noNameFish.pl/releases)
+![Odwiedziny](https://api.visitorbadge.io/api/VisitorHit?user=shogunPL&repo=mapa_interaktywna_noNameFish.pl&label=ODWIEDZINY&countColor=%2328a745)
 
 ### ⬇️ [POBIERZ NAJNOWSZĄ WERSJĘ](https://github.com/shogunPL/mapa_interaktywna_noNameFish.pl/releases/latest)
 
