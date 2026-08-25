@@ -6,7 +6,7 @@
 
 Mapy lokalne • Spoty społeczności NNF • Notatki • Miarka • Rysowanie • Automatyczne aktualizacje
 
-<p align="left">
+<p align="center">
   <img height="18" src="https://img.shields.io/badge/Windows-10%20%2F%2011-0078D6?style=flat-square&logo=windows" />
   <img height="18" src="https://img.shields.io/badge/wersja-v1.0.6-0A84FF?style=flat-square" />
   <img height="18" src="https://img.shields.io/github/downloads/shogunPL/mapa_interaktywna_noNameFish.pl/total?style=flat-square&label=pobrania" />
